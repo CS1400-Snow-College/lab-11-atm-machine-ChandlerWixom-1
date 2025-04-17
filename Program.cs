@@ -70,10 +70,11 @@ Dictionary<string, List<string>> LoadBankCustomers()
 // login system
 (bool, string) validateUser(Dictionary<string, List<string>> users)
 {
+            Console.Write("What is your Username :");
+
     do
     {
-        Console.Clear();
-        Console.Write("What is your Username :");
+        
         string? nametry = Console.ReadLine();
 
         if (users.ContainsKey(nametry))
@@ -99,8 +100,12 @@ Dictionary<string, List<string>> LoadBankCustomers()
 
             return (false, "BLOCKED");
         }
-        Console.WriteLine("Hmmm?");
-        Console.ReadKey(true);
+        Console.Clear();
+                Console.WriteLine("What is your Username :");
+        Console.Write("Hmmm?");
+        Console.SetCursorPosition(23,0);
+        
+        
 
     } while (true);
 }
