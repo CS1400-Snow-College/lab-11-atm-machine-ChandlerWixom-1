@@ -4,6 +4,8 @@
 // loadBankCustomers() saveBankCustomers() validateUser() checkBalance() withdrawMoney() depositMoney() quickWithdraw(int Amount) displayTranactions()
 
 
+using System.ComponentModel.Design;
+
 Dictionary<string, List<string>> users = LoadBankCustomers();
 Console.Clear();
 
@@ -11,8 +13,8 @@ Console.Clear();
 
 if (access)
 {
-Console.WriteLine(access);
-Console.WriteLine(name);
+    Menu(name,users[name]);
+
 }
 else
 {
@@ -50,6 +52,7 @@ else
 {
     do
     {
+        Console.Clear();
     Console.Write("What is your Username :");
     string? nametry = Console.ReadLine();
 
@@ -77,6 +80,59 @@ else
         return (false, "BLOCKED");
     }
     Console.WriteLine("Hmmm?");
+    Console.ReadKey(true);
 
     } while (true);
+}
+
+
+// displays and runs menu
+List<string> Menu(string name, List<string> userInfo)
+{
+    Console.WriteLine($"Hello {name}");
+    Console.WriteLine(@"
+1. Check Balance
+2. Withdraw
+3. Deposit
+4. Display last 5 transactions
+5. Quick Withdraw $40
+6. Quick Withdraw $100
+7. End current session");
+char input;
+do
+{
+    input = Console.ReadKey(true).KeyChar;
+    
+    switch (input)
+    {
+        case '1' : Console.WriteLine("balance");
+        break;
+
+        case '2' : ;
+        break;
+
+        case '3' : ;
+        break;
+
+        case '4' : ;
+        break;
+
+        case '5' : ;
+        break;
+
+        case '6' : ;
+        break;
+
+    }
+
+   
+
+
+
+
+} while (input != '7');
+
+
+// temp update user stuff and return updated
+    return userInfo;
 }

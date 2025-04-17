@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("lab-11-atm-machine-ChandlerWixom-1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5456cfe875219c38ae117e411163e95404fb7056")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e8b6bb17bf4a388828a0ea5b6708c48e792cd905")]
 [assembly: System.Reflection.AssemblyProductAttribute("lab-11-atm-machine-ChandlerWixom-1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("lab-11-atm-machine-ChandlerWixom-1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
