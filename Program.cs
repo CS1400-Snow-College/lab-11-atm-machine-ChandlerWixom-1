@@ -5,6 +5,8 @@
 
 
 using System.ComponentModel.Design;
+using System.Reflection;
+using System.Transactions;
 
 Dictionary<string, List<string>> users = LoadBankCustomers();
 Console.Clear();
@@ -89,6 +91,9 @@ else
 // displays and runs menu
 List<string> Menu(string name, List<string> userInfo)
 {
+    int balance = Convert.ToInt32(userInfo[2]);
+
+
     Console.WriteLine($"Hello {name}");
     Console.WriteLine(@"
 1. Check Balance
@@ -99,16 +104,17 @@ List<string> Menu(string name, List<string> userInfo)
 6. Quick Withdraw $100
 7. End current session");
 char input;
+
 do
 {
     input = Console.ReadKey(true).KeyChar;
     
     switch (input)
     {
-        case '1' : Console.WriteLine("balance");
+        case '1' : Console.WriteLine($"Balance is {balance}");
         break;
 
-        case '2' : ;
+        case '2' : balance = Withdrawl(balance, -1);
         break;
 
         case '3' : ;
@@ -117,7 +123,7 @@ do
         case '4' : ;
         break;
 
-        case '5' : ;
+        case '5' : balance = Withdrawl(balance, 40);
         break;
 
         case '6' : ;
@@ -135,4 +141,46 @@ do
 
 // temp update user stuff and return updated
     return userInfo;
+}
+
+// withdrawl 
+
+int Withdrawl(int current, int request)
+{
+    if (request == -1)
+        {
+            Console.WriteLine("How much would you like to withdraw");
+            bool passed = false;
+            do
+            {
+            passed = Int32.TryParse(Console.ReadLine() , out int ask);
+            if (passed)
+            {
+            request = ask;
+            }
+            }
+            while (!passed);
+            
+        };
+    if (request <1)
+    {
+        Console.WriteLine("error you can't withdraw a negative amount");
+        return current;
+    }
+
+
+
+
+    if (request > current)
+    {
+        Console.WriteLine($"error you can't withdraw more ({request}) then you have ({current})");
+        return current;
+    }
+    else
+    {
+        current = current - request;
+        Console.WriteLine($"You withdrew {request}");
+        return current;
+    }
+
 }
